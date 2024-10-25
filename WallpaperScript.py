@@ -6,6 +6,7 @@ import time
 
 # Path to the directory with images
 path = "your/file/path"
+time_to_change = 1 #replace the 1 with a number for the number of munites you want the wallpaper to change after
 
 def set_wallpaper():
 # Ensure the directory exists
@@ -40,13 +41,13 @@ def set_wallpaper():
         print("No image files found.")
 
 
-schedule.every(1).minutes.do(set_wallpaper)
+schedule.every(time_to_change).minutes.do(set_wallpaper)
 
 set_wallpaper()
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(time_to_change)
 
 
 
